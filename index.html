@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tilaus - Tehokkaat työkalut Oy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+  <!-- HERO SECTION / HEADER (Matched to index.html) -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center p-4">
+      <a href="index.html" class="text-2xl font-bold text-blue-600">Tehokkaat työkalut Oy</a>
+      <nav class="space-x-4 md:space-x-6 text-lg mt-2 md:mt-0">
+        <a href="index.html" class="hover:text-blue-600 transition">Etusivu</a>
+        <a href="catalog.html" class="hover:text-blue-600 transition">Tuotteemme</a>
+        <!-- Active State for Order Page -->
+        <a href="order.html" class="font-bold text-blue-600 border-b-2 border-blue-600">Tilaa Nyt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow max-w-3xl mx-auto px-4 py-12 w-full">
+    
+    <!-- Intro Section -->
+    <section class="text-center mb-10">
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-4 text-gray-900">Tee varaus</h1>
+      <p class="text-lg text-gray-600">
+        Valitse haluamasi työkalut ja vuokra-aika alla olevalla lomakkeella. 
+        Vahvistamme varauksesi sähköpostitse mahdollisimman pian.
+      </p>
+    </section>
+
+    <!-- Order Form -->
+    <form action="#" method="POST" class="bg-white p-6 md:p-8 rounded-2xl shadow-lg space-y-6">
+      
+      <!-- Customer Info -->
+      <fieldset class="space-y-4">
+        <legend class="text-xl font-semibold text-gray-800 border-b pb-2 w-full mb-4">Asiakastiedot</legend>
+        
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="flex flex-col space-y-1">
+            <label for="name" class="text-sm font-medium text-gray-700">Nimi *</label>
+            <input type="text" id="name" name="name" required
+                   class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600"
+                   placeholder="Matti Meikäläinen">
+          </div>
+
+          <div class="flex flex-col space-y-1">
+            <label for="email" class="text-sm font-medium text-gray-700">Sähköposti *</label>
+            <input type="email" id="email" name="email" required
+                   class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600"
+                   placeholder="matti@esimerkki.fi">
+          </div>
+        </div>
+
+        <div class="flex flex-col space-y-1">
+          <label for="phone" class="text-sm font-medium text-gray-700">Puhelinnumero *</label>
+          <input type="tel" id="phone" name="phone" required
+                 class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600"
+                 placeholder="+358 40 123 4567">
+        </div>
+      </fieldset>
+
+      <!-- Rental Details -->
+      <fieldset class="space-y-4">
+        <legend class="text-xl font-semibold text-gray-800 border-b pb-2 w-full mb-4">Vuokraustiedot</legend>
+
+        <div class="flex flex-col space-y-1">
+          <label for="tool" class="text-sm font-medium text-gray-700">Valitse työkalu *</label>
+          <select id="tool" name="tool" required
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
+            <option value="" disabled selected>-- Valitse listasta --</option>
+            <option value="drill">Akkuporakone (Makita) - 10€/päivä</option>
+            <option value="saw">Sirkkeli - 15€/päivä</option>
+            <option value="washer">Painepesuri (Bosch) - 20€/päivä</option>
+          </select>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="flex flex-col space-y-1">
+            <label for="start-date" class="text-sm font-medium text-gray-700">Aloituspäivä *</label>
+            <input type="date" id="start-date" name="start_date" required
+                   class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
+          </div>
+
+          <div class="flex flex-col space-y-1">
+            <label for="days" class="text-sm font-medium text-gray-700">Kesto (päivää) *</label>
+            <input type="number" id="days" name="days" min="1" max="30" value="1" required
+                   class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
+          </div>
+        </div>
+
+        <div class="flex flex-col space-y-1">
+          <label for="message" class="text-sm font-medium text-gray-700">Lisätiedot / Viesti</label>
+          <textarea id="message" name="message" rows="3"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600"
+                    placeholder="Esim. noutoaika tai lisävarusteet..."></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Terms -->
+      <div class="flex items-start space-x-3 pt-2">
+        <input type="checkbox" id="terms" name="terms" required
+               class="mt-1 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-600">
+        <label for="terms" class="text-sm text-gray-600">
+          Hyväksyn <a href="#" class="text-blue-600 underline hover:text-blue-800">vuokrausehdot</a> ja tietosuojakäytännön.
+        </label>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" 
+              class="w-full bg-blue-600 text-white font-bold py-3 rounded-xl shadow hover:bg-blue-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2">
+        Lähetä varauspyyntö
+      </button>
+
+    </form>
+  </main>
+
+  <!-- FOOTER (Matched to index.html) -->
+  <footer class="bg-white shadow-inner py-6 text-center text-gray-600 mt-auto">
+    © 2025 Tehokkaat työkalut Oy — Kaikki oikeudet pidätetään
+  </footer>
+
+</body>
+</html>
